@@ -24,14 +24,21 @@ public class EmployeeService {
 	}  
 	
 	//getting a specific record by using the method findById() of CrudRepository  
-	public Employee getEmployeeById(int id)   
+	public Employee getEmployeeById(long id)   
 	{  
-	return employeeRepository.findById(id).get();  
+	System.out.print(employeeRepository.findById(id).get());  
+		Employee emp = employeeRepository.findById(id).get();
+		return emp;
 	}  
 	//saving a specific record by using the method save() of CrudRepository  
-	public void saveOrUpdate(Employee books)   
+	public void saveOrUpdate(Employee emp)   
 	{  
-		employeeRepository.save(books);  
+		Employee e = new Employee();
+		e.setFirstName(emp.getFirstName());
+		e.setEmail(emp.getEmail());
+		e.setLastName(emp.getLastName());
+		e.setId(emp.getId());
+		employeeRepository.save(e);  
 	}  
 	//deleting a specific record by using the method deleteById() of CrudRepository  
 	public void delete(int id)   
