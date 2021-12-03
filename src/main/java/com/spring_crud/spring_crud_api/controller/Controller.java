@@ -15,8 +15,11 @@ public class Controller {
 	@Autowired  
 	EmployeeService employeeService;
 	@GetMapping("/{id}")
-    public Employee getEmployee(@PathVariable int id) {
-        return employeeService.getEmployeeById(id);
+    public Employee getEmployee(@PathVariable long id) {
+        //return 
+		System.out.println("ID we are searching is =="+id);
+		Employee emp = employeeService.getEmployeeById(id);
+		return emp;
     }
 	
 	@PostMapping(
