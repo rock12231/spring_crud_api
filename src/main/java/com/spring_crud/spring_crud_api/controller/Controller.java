@@ -20,7 +20,7 @@ public class Controller {
     }
 	
 	@PostMapping(
-			  value = "/createPerson", consumes = "application/json", produces = "application/json")
+			  value = "/save", consumes = "application/json", produces = "application/json")
 			public void createPerson(@RequestBody Employee person) {
 			     employeeService.saveOrUpdate(person);
 			}

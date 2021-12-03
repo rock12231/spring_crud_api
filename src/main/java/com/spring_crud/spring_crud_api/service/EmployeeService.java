@@ -29,9 +29,14 @@ public class EmployeeService {
 	return employeeRepository.findById(id).get();  
 	}  
 	//saving a specific record by using the method save() of CrudRepository  
-	public void saveOrUpdate(Employee books)   
+	public void saveOrUpdate(Employee emp)   
 	{  
-		employeeRepository.save(books);  
+		Employee e = new Employee();
+		e.setFirstName(emp.getFirstName());
+		e.setEmail(emp.getEmail());
+		e.setLastName(emp.getLastName());
+		e.setId(emp.getId());
+		employeeRepository.save(e);  
 	}  
 	//deleting a specific record by using the method deleteById() of CrudRepository  
 	public void delete(int id)   
